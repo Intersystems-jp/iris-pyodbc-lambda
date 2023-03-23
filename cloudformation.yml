@@ -1,0 +1,41 @@
+  AWSTemplateFormatVersion: '2010-09-09'
+  Resources:
+    LambdaLayer:
+      Type: AWS::Lambda::LayerVersion
+      Properties:
+        CompatibleArchitectures:
+          - x86_64
+        CompatibleRuntimes:
+          - python3.8
+        Content:
+          S3Bucket: iijimas3
+          S3Key: iris_pyodbc_lambda.zip
+        Description: "iris python layer"
+        LayerName: "IRISPyODBCLayer"
+
+    IRISPyODBCFunction:
+      Type: "AWS::Lambda::Function"
+      Properties:
+        Environment:
+          Variables:
+            IRISHOST: "13.231.153.242"
+            IRISPORT: "1972"
+            NAMESPACE: "USER"
+            USERNAME: "SuperUser"
+            PASSWORD: "SYS"
+            ODBCSYSINI: "./"
+        Code:
+          S3Bucket: iijimas3
+          S3Key: iris_pyodbc_code.zip
+        Description: "IRIS pyodbc Function"
+        FunctionName: iris-pyodbc
+        Handler: "index.lambda_handler"
+        Layers:
+          - !Ref LambdaLayer
+        MemorySize: 128
+        Role: "arn:aws:iam::109671571309:role/lambda_vpc_basic_execution_IRIS"
+        Runtime: "python3.8"
+        Timeout: 30
+
+
+
