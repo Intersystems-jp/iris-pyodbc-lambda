@@ -5,7 +5,7 @@
 
 1. [レイヤーを作成する](#1-レイヤーを作成する)
 2. [Lambda関数を作成する](#2-lambda関数を追加する)
-3. [1,2の流れをCloudformationで行う例]
+3. [1,2の流れをCloudformationで行う例](#3-12の流れをcloudformationで行う例)
 
 ## 事前準備
 
@@ -290,7 +290,7 @@ PASSWORD|SYS
 
 ___
 
-## 1,2の流れをCloudformationで行う例
+## 3. 1,2の流れをCloudformationで行う例
 
 サンプル：[cloudformation.xml](/cloudformation.yml)を使用して「[1. レイヤーを作成する](#1-レイヤーを作成する) 」と「[2. Lambda関数を作成する](#2-lambda関数を追加する)」の流れを自動化します。
 
