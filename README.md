@@ -201,7 +201,6 @@ ___
 
   接続するIRISの情報に合わせて[connection.config](./examples/connection.config)を変更してください。
 
-ご参考：[iris_pyodbc_code.zip](/iris_pyodbc_code.zip)
 
 ### (2) 確認：Lambda関数ハンドラー名について
 
@@ -267,6 +266,8 @@ PASSWORD|SYS
 - [odbcinst.ini](/examples/odbcinst.ini)
 
 ※IRISへ接続情報を環境変数から取得する場合は、[connection.config](./examples/connection.config)は不要です。
+
+ご参考：[iris_pyodbc_code.zip](/iris_pyodbc_code.zip)
 
 コードタブの右端のボタン「アップロード元」をクリックし、Zipを選択してアップロードします。
 
