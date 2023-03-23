@@ -1,7 +1,7 @@
 # pyodbc経由でIRISに接続するlambda関数を作成するまでの流れ
 参考にしたAWSドキュメント：https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/lambda-python.html
 
-このリポジトリでご紹介する手順は以下の通りです。
+このリポジトリでは、以下の内容を説明します。
 
 1. [レイヤーを作成する](#1-レイヤーを作成する)
 2. [Lambda関数を作成する](#2-lambda関数を追加する)
@@ -11,7 +11,7 @@
 
 - EC2インスタンスを用意し（例ではUbuntu20.04）IRISをインストールした環境を用意し、IRISのスーパーサーバーポート（1972番）にアクセスできるようにします。
 
-- IRISに以下テーブルとデータを用意しておく（USERネームスペースで作成する例）
+- IRISに以下テーブルとデータを用意しておきます（USERネームスペースで作成する例）
 
   IRISにログインします。  
   ```
@@ -36,7 +36,7 @@
   halt
   ```
 
-- Lambda関数からEC2にアクセスするときのロールを作成しておく
+- 必要であれば、Lambda関数からEC2にアクセスするときのロールを作成しておきます。
 
   《参考にしたページ》https://dev.classmethod.jp/articles/tsnote-lambda-the-provided-execution-role-does-not-have-permissions-to-call-createnetworkinterface-on-ec2/
 
@@ -215,7 +215,7 @@ Lambda関数登録時のハンドラー名として、 `"ファイルの名称".
 
 図例では、関数が動作するアーキテクチャに `x86_64` を指定し、ランタイムに `Python3.8` を選択しています。
 
-Lambda関数がEC2にアクセスできるようにする作成するロール名を指定するため、事前にロールをご準備ください。
+必要であれば、Lambda関数がEC2にアクセスできるようにロールを作成します。
 
 ※ロール作成の参考ページ：https://dev.classmethod.jp/articles/tsnote-lambda-the-provided-execution-role-does-not-have-permissions-to-call-createnetworkinterface-on-ec2/
 
@@ -231,6 +231,7 @@ Lambda関数がEC2にアクセスできるようにする作成するロール�
 
 この他、IRISへの接続情報に環境変数を利用する場合は以下追加します。
 
+例）
 環境変数名|値
 --|--
 IRISHOST|13.231.153.242
@@ -380,7 +381,7 @@ lambda関数の中で使用する環境変数の設定や、
 ```
         Handler: "index.lambda_handler"
 ```
-Lambda関数がEC2にアクセスできるようにする作成するロール名の指定を行っています。
+必要であれば、Lambda関数がEC2にアクセスするときに使用するロール名を指定します。
 
 ※ロール作成の参考ページ：https://dev.classmethod.jp/articles/tsnote-lambda-the-provided-execution-role-does-not-have-permissions-to-call-createnetworkinterface-on-ec2/
 
